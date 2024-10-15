@@ -1869,7 +1869,7 @@ std::tuple<bool, bool, std::string> SparkMax::VerifyConfig(const std::string_vie
     {
         if (std::get_if<double>(&value))
         {
-            const double delta = abs(std::get<double>(*actual_value) - std::get<double>(value));
+            const double delta = fabs(std::get<double>(*actual_value) - std::get<double>(value));
 
             equal_actual = delta <= std::numeric_limits<double>::epsilon();
         }
@@ -1887,7 +1887,7 @@ std::tuple<bool, bool, std::string> SparkMax::VerifyConfig(const std::string_vie
     {
         if (std::get_if<double>(&value))
         {
-            const double delta = abs(std::get<double>(default_value) - std::get<double>(value));
+            const double delta = fabs(std::get<double>(default_value) - std::get<double>(value));
 
             equal_default = delta <= std::numeric_limits<double>::epsilon();
         }
